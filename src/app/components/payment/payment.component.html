@@ -1,0 +1,27 @@
+<form [formGroup]="shippingAddress" class="w-75 mx-auto p-5 m-5" (ngSubmit)="handleForm()">
+    <div class="py-2">
+        <label for="details">Details</label>
+        <input class="form-control" formControlName="details" type="text" id="details">
+        <div *ngIf="shippingAddress.get('details')?.errors && shippingAddress.get('details')?.touched" class="alert alert-danger my-2">
+            <span *ngIf="shippingAddress.get('details')?.getError('required')" class="text-danger">details is required</span>
+        </div>
+    </div>
+    <div class="py-2">
+        <label for="phone">Phone</label>
+        <input class="form-control" formControlName="phone" type="tel" id="phone">
+        <div *ngIf="shippingAddress.get('phone')?.errors && shippingAddress.get('phone')?.touched" class="alert alert-danger my-2">
+            <span *ngIf="shippingAddress.get('phone')?.getError('required')" class="text-danger">phone is required</span>
+        </div>
+    </div>
+    <div class="py-2">
+        <label for="city">City</label>
+        <input class="form-control" formControlName="city" type="text" id="city">
+        <div *ngIf="shippingAddress.get('city')?.errors && shippingAddress.get('city')?.touched" class="alert alert-danger my-2">
+            <span *ngIf="shippingAddress.get('city')?.getError('required')" class="text-danger">city is required</span>
+        </div>
+    </div>
+
+    <div class="py-5">
+        <button [disabled]="shippingAddress.invalid" (click)="handleForm()" class="btn btn-outline-info w-100" type="submit">Pay now</button>
+    </div>
+</form>

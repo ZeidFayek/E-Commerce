@@ -1,0 +1,37 @@
+<section class="mt-4 w-100 mx-auto bg-main-light p-3 rounded">
+    <div>
+        <h2 class="fw-bold py-3">All orders : <span class="text-main fw-bolder">{{allOrdersNum}}</span></h2>
+    </div>
+    <div class="row py-3 border-bottom" *ngFor="let item of allOrdersData">
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <i class="text-main fa-regular fa-circle-check fa-2xl"></i>
+        </div>
+        
+        <div class="col-md-2">
+            <div class="row">
+                <div><span class="fw-bolder">place : </span>{{item.shippingAddress.city}}</div>
+                <div><span class="fw-bolder">time of order : </span>{{item.shippingAddress.details}}</div>
+            </div>
+        </div>
+        
+        <div class="col-md-2">
+            <div class="row">
+                <div><span class="fw-bolder">totalOrderPrice : </span>{{item.totalOrderPrice}}</div>
+                <div><span class="fw-bolder">paymentMethod : </span>{{item.paymentMethodType}}</div>
+            </div>
+        </div>
+        
+        <div class="col-md-2">
+            <span class="fw-bolder">ordered by : </span> {{item.user.name}}
+        </div>
+
+        <div class="col-md-2">
+            <span class="fw-bolder">count : </span> {{item.count}}
+        </div>
+
+        <div class="col-md-2">
+            <span class="fw-bolder">ratingsQuantity : </span> {{item.ratingsQuantity}}
+        </div>
+
+    </div>
+</section>

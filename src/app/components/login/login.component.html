@@ -1,0 +1,24 @@
+<form (ngSubmit)="handleLogin()" [formGroup]="loginForm" class="w-75 mx-auto">
+    <h3>login now :</h3>
+    <div>
+        <label for="email" class="py-2">email :</label>
+        <input class="form-control" type="email" id="email" formControlName="email">
+        <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched || loginForm.get('email')?.value.length>0)" class="alert alert-danger">
+            <span *ngIf="loginForm.get('email')?.getError('required')">email is required</span>
+            <span *ngIf="loginForm.get('email')?.getError('email')">invalid format</span>
+        </div>
+    </div>
+    <div class="pb-3">
+        <label for="password" class="py-2">password :</label>
+        <input class="form-control" type="password" id="password" formControlName="password">
+        <div *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched || loginForm.get('password')?.value.length>0)" class="alert alert-danger">
+            <span *ngIf="loginForm.get('password')?.getError('required')">password is required</span>
+            <span *ngIf="loginForm.get('password')?.getError('pattern')">password must be at least 6 chars</span>
+        </div>
+    </div>
+    <p *ngIf="errMessage" class="alert alert-danger">{{errMessage}}</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <p class="h5 fw-bolder forget" role="button" routerLink="/forgetpassword">forget your password ?</p>
+        <button [disabled]="loginForm.invalid" class="main-btn d-block ms-auto p-2" type="submit">Login <span *ngIf="isLoading"><i class="fa-solid fa-spinner fa-spin-pulse"></i></span></button>
+    </div>
+</form>

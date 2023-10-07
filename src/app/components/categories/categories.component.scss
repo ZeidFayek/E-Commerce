@@ -1,0 +1,30 @@
+.item{
+    &:hover{
+        .card{
+            box-shadow: 1px 1px 10px 3px  rgba(0, 128, 0, 0.6);
+        }
+    }
+    .card{
+        transition:box-shadow 0.5s ;
+        -webkit-transition:box-shadow 0.5s ;
+        -moz-transition:box-shadow 0.5s ;
+        -ms-transition:box-shadow 0.5s ;
+        -o-transition:box-shadow 0.5s ;
+}
+}
+
+
+.item{
+    &:hover{
+        .card{
+        box-shadow: 1px 1px 10px 3px  rgba(0, 128, 0, 0.6);
+        }
+    }
+    .card{
+    transition: box-shadow 0.5;
+    -webkit-transition: box-shadow 0.5;
+    -moz-transition: box-shadow 0.5;
+    -ms-transition: box-shadow 0.5;
+    -o-transition: box-shadow 0.5;
+}
+}

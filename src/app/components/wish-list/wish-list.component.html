@@ -1,0 +1,16 @@
+<section class="p-5 m-5 bg-main-light rounded">
+    <h3 class="h3 fw-bolder">My wish list</h3>
+    <div class="row py-3 border-bottom d-flex justify-content-center align-items-center" *ngFor="let item of WishData">
+        <div class="col-md-2">
+            <img class="w-100" [src]="item.imageCover" [alt]="item.title">
+        </div>
+        <div class="col-md-8">
+                <h3 class="h5 fw-bolder">{{item.title}}</h3>
+                <p class="fw-bolder text-main"><span>{{item.price}}</span> EGP</p>
+                <button (click)="removeItem(item.id)" class="btn fw-bolder p-0 m-0 text-danger"><i class="fa-solid fa-trash"></i> Remove</button>
+        </div>
+        <div class="col-md-2">
+            <button (click)="addToCart(item._id)" class="btn btn-outline-success btn-lg">Add To Cart</button>
+        </div>
+    </div>
+</section>

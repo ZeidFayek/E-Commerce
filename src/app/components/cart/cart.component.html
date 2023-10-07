@@ -1,0 +1,44 @@
+<section class="mt-4 w-75 mx-auto bg-main-light p-5 rounded">
+<h3 class="fw-bolder py-3">Cart Shop</h3>
+<section *ngIf="cartData;else name">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <p class="fw-bolder h5">total price : <span class="text-main">{{cartData.totalCartPrice}}</span></p>
+        </div>
+        <div>
+            <div class="d-flex justify-content-end py-3">
+                <button [routerLink]="['/payment' , cartData._id]" class="btn btn-primary btn-lg">Check out</button>
+            </div>
+            <div>
+            <p class="fw-bolder h5">total number of items : <span class="text-main">{{numOfCartData}}</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row py-3 border-bottom" *ngFor="let item of cartData.products">
+        <div class="col-md-2">
+            <img class="w-100" [src]="item.product.imageCover" [alt]="item.product.title">
+        </div>
+        <div class="col-md-10 hstack justify-content-between">
+            <div>
+                <h3 class="h5 fw-bolder">{{item.product.title}}</h3>
+                <p class="fw-bolder"><span>{{item.price}}</span> EGP</p>
+                <button (click)="removeItem(item.product._id)" class="btn fw-bolder p-0 m-0 text-danger"><i class="fa-solid fa-trash"></i> Remove</button>
+            </div>
+            <div>
+                <button (click)="changeCount(item.count + 1 , item.product._id )" class="btn btn-border fw-bolder">+</button>
+                <span class="px-3 fw-bolder">{{item.count}}</span>
+                <button (click)="changeCount(item.count - 1 , item.product._id)" class="btn btn-border fw-bolder">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="hstack align-items-center py-4">
+        <button (click)="removeUserCart()" routerLink="/home" class="btn btn-border h5 fw-bolder mx-auto p-3">Clear Your Cart</button>
+    </div>
+</section>
+<ng-template #name>
+    <section>
+        <p class="h3 fw-bolder">your cart is empty...</p>
+    </section>
+</ng-template>
+</section>

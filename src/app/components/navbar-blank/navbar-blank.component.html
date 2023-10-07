@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container-fluid mx-5 my-2">
+        <div class="px-5 d-flex justify-content-center align-items-center">
+        <a class="navbar-brand" routerLink="/"><i class="fa-solid fa-cart-shopping fa-xl text-main"></i><span class="h3 ms-2 fw-bolder">fresh cart</span></a>
+        </div>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="px-5">
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link" routerLink="/home">Home</a>
+                    </li>
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link" routerLink="/cart">Cart</a>
+                    </li>
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link" routerLink="/wishlist">Wish List</a>
+                    </li>
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link" routerLink="/products">Products</a>
+                    </li>
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link" routerLink="/categories">Categories</a>
+                    </li>
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link" routerLink="/brands">Brands</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="px-5">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex justify-content-center align-items-center">
+                <div class="px-3">
+                    <li class="nav-item h6 fw-bolder">
+                        <a class="nav-link px-3 position-relative" routerLink="/cart">
+                            <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                            <span class="badge bg-success me-2 text-white position-absolute top-0 end-0">{{cartCount}}</span>
+                        </a>
+                        
+                    </li>
+                </div>
+                <div>
+                    <li (click)="SignOut()" class="nav-item h6">
+                        <span role="button" routerLink="/login">log out</span>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>

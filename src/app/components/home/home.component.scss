@@ -1,0 +1,36 @@
+.product {
+    padding: 6px 9px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition:0.5s ;
+    -webkit-transition:0.5s ;
+    -moz-transition:0.5s ;
+    -ms-transition:0.5s ;
+    -o-transition:0.5s ;
+    &:hover {
+            box-shadow: 1px 1px 10px 3px  rgba(0, 128, 0, 0.6);
+            .main-btn {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+            
+            }
+            .main-btn {
+                transform: translateY(130%);
+                opacity: 0;
+                transition: transform 0.5s, opacity 0.5s ;
+                -webkit-transition: transform 0.5s, opacity 0.5s ;
+                -moz-transition: transform 0.5s, opacity 0.5s ;
+                -ms-transition: transform 0.5s, opacity 0.5s ;
+                -o-transition: transform 0.5s, opacity 0.5s ;
+            }
+}
+.product{
+    position: relative;
+
+    .fav{
+        position: absolute;
+        bottom: 30px;
+        right: 8px;
+    }
+}

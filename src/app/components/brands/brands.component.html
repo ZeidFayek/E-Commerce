@@ -1,0 +1,38 @@
+<section class="p-5">
+    <h1 class="text-main text-center fw-bolder">All Brands</h1>
+    <div class="container-fluid p-5">
+        <div class="row g-4">
+            <div class="col-sm-12 col-md-3 item" *ngFor="let item of brandData">
+                <div class="card rounded p-4" role="button" (click)="openModal(item.name , item.slug  , item.image)" data-bs-toggle="modal" data-bs-target="#modal">
+                    <img [src]="item.image" [alt]="item.slug">
+                    <div class="py-1 text-center fw-bold">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document" >
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row d-flex justify-content-center align-items-center">
+                                    <div class="col-md-6 d-flex flex-column">
+                                        <p class="text-main fw-bolder h5 ps-3">{{brandName}}</p>
+                                        <p class="ps-3">{{brandSlug}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="w-100" [src]="brandImage" [alt]="brandSlug">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" (click)="closeModal()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

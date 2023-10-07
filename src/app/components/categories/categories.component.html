@@ -1,0 +1,21 @@
+<section class="p-3">
+    <div class="row g-4">
+        <div class="col-md-4 item" role="button" (click)="getData(item._id , item.name)" *ngFor="let item of categoryData">
+            <div class="card rounded">
+                <img class="w-100 object-fit-cover" height="340" [src]="item.image" alt="item.slug">
+                <p class="h3 text-center text-main fw-bolder py-4">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-3">
+    <h2 class="text-center my-3 py-3 text-main fw-bolder">{{categoryName}}</h2>
+    <div class="row g-4">
+        <div class="col-md-4 item fw-bolder" *ngFor="let item of subCategoryData">
+            <div class="card">
+                <p class="h3 text-center p-3">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</section>
