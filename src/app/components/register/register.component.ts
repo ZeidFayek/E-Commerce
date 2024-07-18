@@ -10,51 +10,51 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
 
-  constructor(private _AuthService:AuthService , private _Router:Router){}
+  constructor(private _AuthService: AuthService, private _Router: Router) { }
 
-  isLoading:boolean = false;
-  errMessage:String = '';
+  isLoading: boolean = false;
+  errMessage: String = '';
 
-  registerForm:FormGroup = new FormGroup({
-    name:new FormControl('' , [Validators.required , Validators.minLength(3) , Validators.maxLength(20)]),
-    email:new FormControl('' , [Validators.required , Validators.email]),
-    password:new FormControl('' , [Validators.required , Validators.pattern(/^\w{6,}$/)]),
-    rePassword:new FormControl(''),
-    phone:new FormControl('' , [Validators.required , Validators.pattern(/^01[0125][0-9]{8}$/)])
-  } , { validators:[this.confirmPassword] } as FormControlOptions)
+  registerForm: FormGroup = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.pattern(/^\w{6,}$/)]),
+    rePassword: new FormControl(''),
+    phone: new FormControl('', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)])
+  }, { validators: [this.confirmPassword] } as FormControlOptions)
 
-  confirmPassword(group:FormGroup):void{
+  confirmPassword(group: FormGroup): void {
     const password = group.get('password');
     const rePassword = group.get('rePassword');
 
-    if( rePassword?.value == '' ){
-      rePassword.setErrors({ required:true })
+    if (rePassword?.value == '') {
+      rePassword.setErrors({ required: true })
     }
-    else if( password?.value != rePassword?.value ){
-      rePassword?.setErrors({ mismatch:true })
+    else if (password?.value != rePassword?.value) {
+      rePassword?.setErrors({ mismatch: true })
     }
   }
 
 
-  handleRegister():void{ 
-    
+  handleRegister(): void {
+
     this.isLoading = true
 
-    if(this.registerForm.valid){
-      this._AuthService.registerForm (this.registerForm.value).subscribe({
-        next:(response)=>{
+    if (this.registerForm.valid) {
+      this._AuthService.registerForm(this.registerForm.value).subscribe({
+        next: (response) => {
           console.log(response)
-          if(response.message === 'success'){
+          if (response.message === 'success') {
             this._Router.navigate(['/login'])
           }
           this.isLoading = false
         },
 
-        error:(err)=>{
+        error: (err) => {
           this.isLoading = false
-          this.errMessage = err.error.message          
+          this.errMessage = err.error.message
         }
       })
-    } 
+    }
   }
 }
